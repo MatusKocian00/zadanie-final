@@ -16,12 +16,7 @@
             <div>
                 <x-label for="name" :value="__('Name')" />
 
-                <x-input id="name" class="block mt-1 w-full @error('name') border-red-500 @enderror" type="text" name="name" :value="old('name')" autofocus />
-                <!-- @error('name') -->
-                <!-- <div class="text text-red-500 mt-2 text-sm">
-                    {{ $message }}
-                </div>
-                @enderror -->
+                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" autofocus />
             </div>
 
             <!-- Email Address -->
