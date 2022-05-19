@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 //    echo "</pre>";
 
     echo json_encode($rows);
-    header("HTTP/1.1 200 OK");
+    //header("HTTP/1.1 200 OK");
 
 } else {
     echo "Doesn't work";
