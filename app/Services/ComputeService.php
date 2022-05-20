@@ -1,30 +1,63 @@
 <?php
 
 namespace App\Services;
+
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 use App\Models\Compute;
 
 class ComputeService
 {
-    public function runOctave($data, $user){
-            $fp = fopen($user."input.m", 'w');
-            fwrite($fp, $data);
+    public function runOctave($data, $user)
+    {
+        function initialize_data()
+        {
+            $fp = fopen("/var/www/site95.webte.fei.stuba.sk/zadanie-final/storage/app/octave/input.m", 'w');
+            $input = "pkg load control
+            m1 = 2500; m2 = 320;
+            k1 = 80000; k2 = 500000;
+            b1 = 350; b2 = 15020;
+            A = [0 1 0 0;-(b1*b2)/(m1*m2) 0 ((b1/m1)*((b1/m1)+(b1/m2)+(b2/m2)))-(k1/m1) -(b1/m1);b2/m2 0 -((b1/m1)+(b1/m2)+(b2/m2)) 1;k2/m2 0 -((k1/m1)+(k1/m2)+(k2/m2)) 0];
+            B = [0 0;1/m1 (b1*b2)/(m1*m2);0 -(b2/m2);(1/m1)+(1/m2) -(k2/m2)];
+            C = [0 0 1 0];
+            D = [0 0];
+            Aa = [[A,[0 0 0 0]'];[C, 0]];
+            Ba = [B;[0 0]];
+            Ca = [C,0];
+            Da = D;
+            K = [0 2.3e6 5e8 0 8e6];
+            sys = ss(Aa-Ba(:,1)*K,Ba,Ca,Da);
+            t = 0:0.01:5;
+            r = 0.1;
+            initX1 = 0;
+            initX1d = 0;
+            initX2 = 0;
+            initX2d = 0;
+            [y,t,x] = lsim(sys*[0;1],r*ones(size(t)),t,[initX1;initX1d;initX2;initX2d;0]);
+            filename = \"/var/www/site95.webte.fei.stuba.sk/zadanie-final/storage/app/octave/vector.txt\";
+            fid = fopen (filename, \"w\");
+            fputs (fid, disp(x(size(x,1),:)));
+            fputs (fid, disp([t,x(:,1),x(:,3)]));
+            fclose (fid);
+            ";
+            fwrite($fp, $input);
             fclose($fp);
-            $process = new Process(['octave',$user."input.m"]);
-            $process->run();
-    
-            $txt_file = file_get_contents("vector.txt");
-            $rows = explode("\n", $txt_file);
-        
-            foreach ($rows as &$row) {
-                $row = explode("  ", $row);
-                unset($row[0]);
-                foreach ($row as &$number) {
-                    $number = str_replace(" ", "", $number);
-                    $number = floatval($number);
-                }
+        }
+        initialize_data();
+
+        exec('octave /var/www/site95.webte.fei.stuba.sk/zadanie-final/storage/app/octave/input.m');
+
+        $txt_file = file_get_contents("/var/www/site95.webte.fei.stuba.sk/zadanie-final/storage/app/octave/vector.txt");
+        $rows = explode("\n", $txt_file);
+
+        foreach ($rows as &$row) {
+            $row = explode("  ", $row);
+            unset($row[0]);
+            foreach ($row as &$number) {
+                $number = str_replace(" ", "", $number);
+                $number = floatval($number);
             }
-            return json_encode($rows);
+        }
+        return json_encode($rows);
     }
 }
