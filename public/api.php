@@ -2,12 +2,10 @@
 
 //header('Content-Type: application/json; charset=utf-8');
 if ($_SERVER['REQUEST_METHOD'] == "GET") {
-
     function initialize_data() {
         $fp = fopen('input.m', 'w');
         $input = "
             pkg load control
-            m1 = 2500; m2 = 320;
             k1 = 80000; k2 = 500000;
             b1 = 350; b2 = 15020;
             A = [0 1 0 0;-(b1*b2)/(m1*m2) 0 ((b1/m1)*((b1/m1)+(b1/m2)+(b2/m2)))-(k1/m1) -(b1/m1);b2/m2 0 -((b1/m1)+(b1/m2)+(b2/m2)) 1;k2/m2 0 -((k1/m1)+(k1/m2)+(k2/m2)) 0];
@@ -37,8 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
         fwrite($fp, $input);
         fclose($fp);
     }
-
-//    initialize_data();
+    initialize_data();
 
     exec('octave input.m');
 

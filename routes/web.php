@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ComputeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,5 +30,11 @@ Route::get('/dashboard', function () {
 Route::get('/application', function () {
     return view('application');
 })->middleware(['auth'])->name('application');
+
+Route::get('compute-post-form', [ComputeController::class, 'index']);
+Route::post('store-form', [ComputeController::class, 'store']);
+Route::get('/animation', function () {
+    return view('animation');
+})->middleware(['auth'])->name('animation');
 
 require __DIR__ . '/auth.php';
