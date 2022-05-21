@@ -20,12 +20,13 @@ class ComputeController extends Controller
         ]);
         $compute = new Compute;
         $octave = new ComputeService;
-        $data = $octave->runOctave($request->body,$request->user);
-        dd($data);
-        $compute->body = $data;
+        $data = $octave->runOctave($request->body, $request->user);
+        $compute->body = $request->body;
         $compute->serror = "nothing";
         $compute->nerrors = 0;
-        $compute->save();
-        return redirect()->back();
+        $compute->save();   
+        return view('animation', [
+            'data' => $data
+        ]);
     }
 }

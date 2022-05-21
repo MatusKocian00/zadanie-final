@@ -31,8 +31,9 @@ Route::get('/application', function () {
     return view('application');
 })->middleware(['auth'])->name('application');
 
-Route::get('compute-post-form', [ComputeController::class, 'index']);
-Route::post('store-form', [ComputeController::class, 'store']);
+//Route::get('compute-post-form', [ComputeController::class, 'index']);
+Route::post('animation', [ComputeController::class, 'store']);
+
 Route::get('/animation', function () {
     return view('animation');
 })->middleware(['auth'])->name('animation');

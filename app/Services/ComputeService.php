@@ -12,7 +12,7 @@ class ComputeService
     {
         function initialize_data()
         {
-            $fp = fopen("/var/www/site95.webte.fei.stuba.sk/zadanie-final/storage/app/octave/input.m", 'w');
+            $fp = fopen("../storage/app/octave/input.m", 'w');
             $input = "pkg load control
             m1 = 2500; m2 = 320;
             k1 = 80000; k2 = 500000;
@@ -34,7 +34,7 @@ class ComputeService
             initX2 = 0;
             initX2d = 0;
             [y,t,x] = lsim(sys*[0;1],r*ones(size(t)),t,[initX1;initX1d;initX2;initX2d;0]);
-            filename = \"/var/www/site95.webte.fei.stuba.sk/zadanie-final/storage/app/octave/vector.txt\";
+            filename = \"../storage/app/octave/vector.txt\";
             fid = fopen (filename, \"w\");
             fputs (fid, disp(x(size(x,1),:)));
             fputs (fid, disp([t,x(:,1),x(:,3)]));
@@ -45,9 +45,9 @@ class ComputeService
         }
         initialize_data();
 
-        exec('octave /var/www/site95.webte.fei.stuba.sk/zadanie-final/storage/app/octave/input.m');
+        exec('octave ../storage/app/octave/input.m');
 
-        $txt_file = file_get_contents("/var/www/site95.webte.fei.stuba.sk/zadanie-final/storage/app/octave/vector.txt");
+        $txt_file = file_get_contents("../storage/app/octave/vector.txt");
         $rows = explode("\n", $txt_file);
 
         foreach ($rows as &$row) {
@@ -58,6 +58,6 @@ class ComputeService
                 $number = floatval($number);
             }
         }
-        return json_encode($rows);
+        return $rows;
     }
 }
