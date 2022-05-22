@@ -12,11 +12,7 @@ class ApiController extends Controller
     public function car(Request $request)
     {
         $octave = new ComputeService;
-        $data = $octave->runOctave(-0.1, $request->user);
-        // $compute->body = $request->body;
-        // $compute->serror = "nothing";
-        // $compute->nerrors = 0;
-        // $compute->save();
+        $data = $octave->runOctave($request->get('r'), $request->user);
         return response()->json($data);
     }
 }

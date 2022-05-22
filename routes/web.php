@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ApiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ComputeController;
 use App\Http\Controllers\TokenController;
@@ -34,7 +35,7 @@ Route::get('/application', function () {
     return view('application');
 })->middleware(['auth'])->name('application');
 
-Route::post('application', [ComputeController::class, 'store']);
+Route::post('application', [ApiController::class, 'car']);
 
 Route::get('/animation', function () {
     return view('animation');
