@@ -24,9 +24,14 @@ class ComputeController extends Controller
         $compute->body = $request->body;
         $compute->serror = "nothing";
         $compute->nerrors = 0;
-        $compute->save();   
+        $compute->save();
         return view('animation', [
             'data' => $data
         ]);
+    }
+
+    public function car()
+    {
+        return response()->json([]);
     }
 }

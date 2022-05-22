@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ComputeController;
+use App\Http\Controllers\TokenController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +29,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+
 Route::get('/application', function () {
     return view('application');
 })->middleware(['auth'])->name('application');
@@ -37,5 +40,11 @@ Route::post('animation', [ComputeController::class, 'store']);
 Route::get('/animation', function () {
     return view('animation');
 })->middleware(['auth'])->name('animation');
+
+Route::get('/token', [TokenController::class, 'index'])->middleware(['auth'])->name('token');
+
+Route::post('token', [TokenController::class, 'generateToken'])->name('generateTokens');
+
+
 
 require __DIR__ . '/auth.php';

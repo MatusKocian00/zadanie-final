@@ -7,7 +7,6 @@
     const x1 = []
     const x2 = []
     for (let i = 1; i < jsObject.length; i++) {
-        //console.log(jsObject[i]);
         labels.push(jsObject[i][1]);
         x1.push(jsObject[i][2])
         x2.push(jsObject[i][3])

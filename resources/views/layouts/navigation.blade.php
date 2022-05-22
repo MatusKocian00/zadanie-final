@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('application')" :active="request()->routeIs('application')">
                         {{ __('Application') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('token')" :active="request()->routeIs('token')">
+                        {{ __('Token') }}
+                    </x-nav-link>
                 </div>
             </div>
 
