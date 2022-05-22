@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\Api\ApiController;
+use App\Http\Controllers\application\GraphController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ComputeController;
 use App\Http\Controllers\TokenController;
 
 /*
@@ -35,7 +34,7 @@ Route::get('/application', function () {
     return view('application');
 })->middleware(['auth'])->name('application');
 
-Route::post('application', [ApplicationController::class, 'graph']);
+Route::post('application', [GraphController::class, 'graph']);
 
 Route::get('/animation', function () {
     return view('animation');

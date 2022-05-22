@@ -10,6 +10,7 @@ use App\Services\ComputeService;
 class ApiController extends Controller
 {
     public function car(Request $request)
+    
     {
         $octave = new ComputeService;
         $data = $octave->runOctave($request->get('r'), $request->user);

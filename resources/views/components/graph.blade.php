@@ -2,15 +2,14 @@
     <canvas id="canvas" height="280" width="600"></canvas>
 </div>
 <script>
-    const jsObject = {{Js::from($data)}};
+    const jsObject = {{Js::from(json_decode($data))}};
     const labels = []
     const x1 = []
     const x2 = []
-    for (let i = 1; i < jsObject.length; i++) {
+    for (let i = 1; i < jsObject.length - 1; i++) {
         labels.push(jsObject[i][1]);
         x1.push(jsObject[i][2])
         x2.push(jsObject[i][3])
-
     }
     const data = {
         labels: labels,
