@@ -35,7 +35,7 @@ Route::get('/application', function () {
     return view('application');
 })->middleware(['auth'])->name('application');
 
-Route::post('application', [ApiController::class, 'car']);
+Route::post('application', [ApplicationController::class, 'graph']);
 
 Route::get('/animation', function () {
     return view('animation');
