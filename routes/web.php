@@ -34,16 +34,19 @@ Route::get('/application', function () {
     return view('application');
 })->middleware(['auth'])->name('application');
 
-//Route::get('compute-post-form', [ComputeController::class, 'index']);
-Route::post('animation', [ComputeController::class, 'store']);
+Route::post('application', [ComputeController::class, 'store']);
 
 Route::get('/animation', function () {
     return view('animation');
 })->middleware(['auth'])->name('animation');
 
 Route::get('/token', [TokenController::class, 'index'])->middleware(['auth'])->name('token');
+Route::post('token', [TokenController::class, 'generateToken'])->middleware(['auth'])->name('generateTokens');
 
-Route::post('token', [TokenController::class, 'generateToken'])->name('generateTokens');
+Route::get('/instructions', function () {
+    return view('instructions');
+})->middleware(['auth'])->name('instructions');
+
 
 
 

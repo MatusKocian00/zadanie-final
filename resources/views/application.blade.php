@@ -12,12 +12,12 @@
                     <x-auth-session-status class="mb-4" :status="session('status')" />
                     <!-- Validation Errors -->
                     <x-auth-validation-errors class="mb-4" :errors="$errors" />
-                    <form name="compute-post-form" method="post" action={{url('animation')}}>
+                    <form method="post" action={{url('application')}}>
                         @csrf
                         <div class="form-group">
                             <textarea class='form-control block w-full px-3 mb-5 text-base font-normal rounded transition ease-in-out m-0
                             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none' name="body" id="body" rows="10" placeholder="Enter rovnica:"></textarea>
-                        </div>                   
+                        </div>
                         <x-button>
                             {{ __('compute') }}
                         </x-button>

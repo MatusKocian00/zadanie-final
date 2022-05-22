@@ -10,7 +10,7 @@ class ComputeService
 {
     public function runOctave($data, $user)
     {
-        function initialize_data()
+        function initialize_data($data)
         {
             $fp = fopen("../storage/app/octave/input.m", 'w');
             $input = "pkg load control
@@ -28,7 +28,7 @@ class ComputeService
             K = [0 2.3e6 5e8 0 8e6];
             sys = ss(Aa-Ba(:,1)*K,Ba,Ca,Da);
             t = 0:0.01:5;
-            r = 0.1;
+            r = " . $data . ";
             initX1 = 0;
             initX1d = 0;
             initX2 = 0;
@@ -43,7 +43,7 @@ class ComputeService
             fwrite($fp, $input);
             fclose($fp);
         }
-        initialize_data();
+        initialize_data($data);
 
         exec('octave ../storage/app/octave/input.m');
 

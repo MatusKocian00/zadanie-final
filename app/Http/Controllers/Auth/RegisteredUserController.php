@@ -51,8 +51,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        $token = $user->createToken('app_token')->plainTextToken;
-
-        return redirect('dashboard')->with('token', $token);
+        return redirect(RouteServiceProvider::HOME);
     }
 }
