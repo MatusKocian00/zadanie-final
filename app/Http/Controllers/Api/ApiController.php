@@ -10,10 +10,13 @@ use App\Services\ComputeService;
 class ApiController extends Controller
 {
     public function car(Request $request)
-    
+
     {
+        $request->validate([
+            'body' => ['required'],
+        ]);
         $octave = new ComputeService;
-        $data = $octave->runOctave($request->get('r'), $request->user);
+        $data = $octave->runOctave($request->get('body'), $request->user);
         return response()->json($data);
     }
 }

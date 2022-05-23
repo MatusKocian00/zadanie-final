@@ -2,10 +2,6 @@
 
 namespace App\Services;
 
-use Symfony\Component\Process\Exception\ProcessFailedException;
-use Symfony\Component\Process\Process;
-use App\Models\Compute;
-
 class ComputeService
 {
     public function runOctave($data, $user)

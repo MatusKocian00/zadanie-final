@@ -10,8 +10,8 @@ class GraphController extends Controller
 {
     public function graph(Request $request)
     {
-
         $data = (new ApiController)->car($request);
+        
         return view('animation', [
             'data' => $data->getContent()
         ]);

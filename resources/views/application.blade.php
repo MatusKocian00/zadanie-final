@@ -15,7 +15,7 @@
                     <form method="post" action={{url('application')}}>
                         @csrf
                         <div class="form-group">
-                            <input type="number" min="-1" max="1" step="0.1" class="form-control" name="r" id="r">
+                            <textarea name="body" placeholder="Enter rovnica:" rows="10" cols="10" class="w-full"></textarea>
                         </div>
                         <x-button>
                             {{ __('compute') }}

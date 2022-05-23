@@ -3,12 +3,6 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
-                <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
-                    </a>
-                </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
@@ -43,6 +37,7 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        <x-language-switcher class="flex wrap justify-between px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out'"></x-language-switcher>
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -74,6 +69,16 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('application')" :active="request()->routeIs('application')">
+                {{ __('Application') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('token')" :active="request()->routeIs('token')">
+                {{ __('Token') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('instructions')" :active="request()->routeIs('instructions')">
+                {{ __('Instructions') }}
+            </x-responsive-nav-link>
+
         </div>
 
         <!-- Responsive Settings Options -->
@@ -85,6 +90,7 @@
 
             <div class="mt-3 space-y-1">
                 <!-- Authentication -->
+                <x-language-switcher class="flex wrap justify-between pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out"></x-language-switcher>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
