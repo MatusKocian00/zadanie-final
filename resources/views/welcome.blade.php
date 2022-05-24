@@ -67,9 +67,13 @@
             text-decoration: none;
             text-transform: uppercase;
         }
+        
+        .links>a:hover {
+            text-decoration: underline;
+        }
 
         .links>.active {
-            text-decoration: underline;
+            display: none;
         }
 
         .lin .m-b-md {
