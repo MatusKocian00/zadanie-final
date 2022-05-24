@@ -2,11 +2,7 @@
     <canvas id="canvas" height="280 " width="600"></canvas>
 </div>
 <script>
-    const jsObject = {
-        {
-            Js::from(json_decode($data))
-        }
-    };
+    const jsObject = {{Js::from(json_decode($data))}};
     const labels = []
     let data = []
     let data2 = []
