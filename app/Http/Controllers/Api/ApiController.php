@@ -13,6 +13,17 @@ class ApiController extends Controller
 
     {
         $request->validate([
+            'r' => ['required'],
+        ]);
+        $octave = new ComputeService;
+        $data = $octave->runOctave($request->get('r'), $request->user);
+        return response()->json($data);
+    }
+
+    public function calculation(Request $request)
+
+    {
+        $request->validate([
             'body' => ['required'],
         ]);
         $octave = new ComputeService;

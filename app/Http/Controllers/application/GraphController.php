@@ -11,8 +11,17 @@ class GraphController extends Controller
     public function graph(Request $request)
     {
         $data = (new ApiController)->car($request);
-        
+
         return view('animation', [
+            'data' => $data->getContent()
+        ]);
+    }
+
+    public function count(Request $request)
+    {
+        $data = (new ApiController)->calculation($request);
+
+        return view('count', [
             'data' => $data->getContent()
         ]);
     }

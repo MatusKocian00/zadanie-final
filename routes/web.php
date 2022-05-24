@@ -36,9 +36,18 @@ Route::get('/application', function () {
 
 Route::post('application', [GraphController::class, 'graph']);
 
+Route::post('calculation', [GraphController::class, 'count']);
+
+
+
 Route::get('/animation', function () {
     return view('animation');
 })->middleware(['auth'])->name('animation');
+
+Route::get('/calculation', function () {
+    return view('calculation');
+})->middleware(['auth'])->name('calculation');
+
 
 Route::get('/token', [TokenController::class, 'index'])->middleware(['auth'])->name('token');
 Route::post('token', [TokenController::class, 'generateToken'])->middleware(['auth'])->name('generateTokens');

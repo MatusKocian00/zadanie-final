@@ -14,15 +14,35 @@
                     <x-auth-validation-errors class="mb-4" :errors="$errors" />
                     <form method="post" action={{url('application')}}>
                         @csrf
-                        <div class="form-group">
-                            <textarea name="body" placeholder="Enter rovnica:" rows="10" cols="10" class="w-full"></textarea>
+                        <div class="flex justify-center">
+                            <div class="mb-3 xl:w-96">
+                                <label for="r" class="form-label inline-block mb-2 text-gray-700">Insert value r</label>
+                                <input type="number" class="
+        form-control
+        block
+        w-full
+        px-3
+        py-1.5
+        text-base
+        font-normal
+        text-gray-700
+        bg-white bg-clip-padding
+        border border-solid border-gray-300
+        rounded
+        transition
+        ease-in-out
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="r" name="r" />
+                            </div>
                         </div>
-                        <x-button>
-                            {{ __('compute') }}
-                        </x-button>
-                    </form>
+                        <div class="flex justify-center mt-2">
+                            <x-button>
+                                {{ __('compute') }}
+                            </x-button>
+                        </div>
                 </div>
+                </form>
             </div>
         </div>
+    </div>
     </div>
 </x-app-layout>
