@@ -2,16 +2,18 @@
     <canvas id="canvas" height="280 " width="600"></canvas>
 </div>
 <script>
-    const jsObject = {{Js::from(json_decode($data))}};
+     const jsObject = {{Js::from(json_decode($data))}};
     const labels = []
     let data = []
     let data2 = []
     for (let i = 1; i < jsObject.length - 1; i++) {
         labels.push(jsObject[i][1]);
+        // wheel
         data.push({
             x: jsObject[i][1],
             y: jsObject[i][2]
         })
+        //car
         data2.push({
             x: jsObject[i][1],
             y: jsObject[i][3]
@@ -24,7 +26,6 @@
     const previousY = (ctx) => ctx.index === 0 ? ctx.chart.scales.y.getPixelForValue(100) : ctx.chart.getDatasetMeta(ctx.datasetIndex).data[ctx.index - 1].getProps(['y'], true).y;
     const animation = {
         x: {
-            type: 'number',
             easing: 'linear',
             duration: delayBetweenPoints,
             from: NaN, // the point is initially skipped
@@ -37,7 +38,6 @@
             }
         },
         y: {
-            type: 'number',
             easing: 'linear',
             duration: delayBetweenPoints,
             from: previousY,
@@ -55,13 +55,15 @@
         data: {
             datasets: [{
                     borderColor: 'red',
-                    borderWidth: 1,
+                    //borderWidth: 1,
+                    label: "Wheel",
                     radius: 0,
                     data: data,
                 },
                 {
                     borderColor: 'blue',
-                    borderWidth: 1,
+                    label: "Car",
+                    //borderWidth: 1,
                     radius: 0,
                     data: data2,
                 }
@@ -70,11 +72,17 @@
         options: {
             animation,
             plugins: {
-                legend: true
+                legend: true,
+                tooltip: {
+                    callbacks: {
+                        label: (ctx) => (`${ctx.dataset.label}: ${ctx.raw.y}`)
+                    }
+                }
             },
             scales: {
                 x: {
-                    type: 'linear'
+                    type: 'linear',
+
                 },
             }
         }

@@ -11,4 +11,5 @@ return [
 
     'welcome' => 'Vitajte na našej stránke!',
     'documentation' => 'Dokumentácia',
+    'calculation' => 'Vypocet',
 ];

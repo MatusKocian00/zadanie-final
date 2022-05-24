@@ -13,4 +13,5 @@ return [
 
     'welcome' => 'Welcome to our page!',
     'documentation' => 'Documentation',
+    'calculation' => 'Calculation'
 ];

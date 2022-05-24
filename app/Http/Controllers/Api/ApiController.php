@@ -10,7 +10,6 @@ use App\Services\ComputeService;
 class ApiController extends Controller
 {
     public function car(Request $request)
-
     {
         $request->validate([
             'r' => ['required'],
