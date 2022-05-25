@@ -1,13 +1,8 @@
-<canvas style="display: block;
-  margin: 20px auto;
-  width: 400px;
-  height: 250px;
-  border: 1px solid #333;" id="animation" width="400" height="250"></canvas>
-
+<canvas style="display: block; margin: 20px auto; width: 400px; height: 250px; border: 1px solid #333;" id="animation" width="400" height="250"></canvas>
 <script>
   let wheelData = data.map(({
     y
-  }) => (y))
+  }) => y);
 
   let carData = data2.map(({
     y
@@ -15,19 +10,18 @@
 
   let iterator = 0;
 
-  var canvas;
-  var ctx;
-  var width = 400;
-  var height = 250;
+  let canvas;
+  let ctx;
+  let width = 400;
+  let height = 250;
 
-  var loop = function(car, wheel) {
-
+  let loop = function(car, wheel) {
     canvas = document.getElementById("animation");
     ctx = canvas.getContext("2d");
 
     let carPoint = wheel * 100;
-
     let wheelPoint = car;
+    
     /* Drawing */
     ctx.clearRect(0, 0, width, height);
     ctx.save();
