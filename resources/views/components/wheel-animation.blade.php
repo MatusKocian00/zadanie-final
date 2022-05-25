@@ -80,5 +80,5 @@
     }
   };
 
-  const interval = setInterval(() => loop(wheelData[iterator], carData[iterator]), 5000 / data.length);
+  const interval = setInterval(() => loop(wheelData[iterator], carData[iterator]), 10000 / data.length);
 </script>
