@@ -7,6 +7,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -32,6 +33,8 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        Storage::disk('local')->put(Auth::id() . "vector.txt", "0 0 0 0 0");
+
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 
@@ -43,6 +46,8 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request)
     {
+        Storage::disk('local')->put(Auth::id() . "vector.txt", "0 0 0 0 0");
+
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();

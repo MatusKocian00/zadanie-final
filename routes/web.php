@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\application\GraphController;
+use App\Http\Controllers\application\CalculateController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TokenController;
 
@@ -36,9 +37,7 @@ Route::get('/application', function () {
 
 Route::post('application', [GraphController::class, 'graph']);
 
-Route::post('calculation', [GraphController::class, 'count']);
-
-
+Route::post('calculation', [CalculateController::class, 'count']);
 
 Route::get('/animation', function () {
     return view('animation');

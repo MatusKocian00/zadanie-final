@@ -19,3 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/car', [ApiController::class, 'car']);
 });
+
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::post('/compute', [ApiController::class, 'calculate']);
+});
+
+

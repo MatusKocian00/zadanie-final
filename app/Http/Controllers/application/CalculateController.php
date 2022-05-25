@@ -6,13 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\ApiController;
 
-class GraphController extends Controller
+class CalculateController extends Controller
 {
-    public function graph(Request $request)
+    public function count(Request $request)
     {
-        $data = (new ApiController)->car($request);
+        $data = (new ApiController)->calculate($request);
 
-        return view('animation', [
+        return view('count', [
             'data' => $data->getContent()
         ]);
     }
