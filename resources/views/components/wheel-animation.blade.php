@@ -11,61 +11,61 @@
   let iterator = 0;
 
   let canvas;
-  let ctx;
+  let ctx2;
   let width = 400;
   let height = 250;
 
   let loop = function(car, wheel) {
     canvas = document.getElementById("animation");
-    ctx = canvas.getContext("2d");
+    ctx2 = canvas.getContext("2d");
 
     let carPoint = wheel * 100;
     let wheelPoint = car;
-    
+
     /* Drawing */
-    ctx.clearRect(0, 0, width, height);
-    ctx.save();
+    ctx2.clearRect(0, 0, width, height);
+    ctx2.save();
 
     /* Chasey */
-    ctx.beginPath();
-    ctx.strokeStyle = "blue"
-    ctx.lineWidth = 15;
-    ctx.arc(width / 2, carPoint + 95, 70, 3.15, 2 * Math.PI);
-    ctx.stroke();
+    ctx2.beginPath();
+    ctx2.strokeStyle = "blue"
+    ctx2.lineWidth = 15;
+    ctx2.arc(width / 2, carPoint + 95, 70, 3.15, 2 * Math.PI);
+    ctx2.stroke();
 
-    ctx.beginPath();
-    ctx.moveTo(width / 2 - 120, carPoint + 100);
-    ctx.lineTo(137.5, carPoint + 100);
-    ctx.stroke();
+    ctx2.beginPath();
+    ctx2.moveTo(width / 2 - 120, carPoint + 100);
+    ctx2.lineTo(137.5, carPoint + 100);
+    ctx2.stroke();
 
-    ctx.beginPath();
-    ctx.moveTo(width / 2 + 120, carPoint + 100);
-    ctx.lineTo(262.5, carPoint + 100);
-    ctx.stroke();
+    ctx2.beginPath();
+    ctx2.moveTo(width / 2 + 120, carPoint + 100);
+    ctx2.lineTo(262.5, carPoint + 100);
+    ctx2.stroke();
 
     /* Outer wheel part */
-    ctx.beginPath();
-    ctx.strokeStyle = "black"
-    ctx.fillStyle = "red"
-    ctx.lineWidth = 5;
-    ctx.arc(width / 2, wheelPoint + 100, 50, 0, 2 * Math.PI);
-    ctx.fill();
+    ctx2.beginPath();
+    ctx2.strokeStyle = "black"
+    ctx2.fillStyle = "red"
+    ctx2.lineWidth = 5;
+    ctx2.arc(width / 2, wheelPoint + 100, 50, 0, 2 * Math.PI);
+    ctx2.fill();
 
     /* Inner wheel part */
-    ctx.beginPath();
-    ctx.fillStyle = "#fff";
-    ctx.lineWidth = 3;
-    ctx.arc(width / 2, wheelPoint + 100, 30, 0, 2 * Math.PI);
-    ctx.fill();
+    ctx2.beginPath();
+    ctx2.fillStyle = "#fff";
+    ctx2.lineWidth = 3;
+    ctx2.arc(width / 2, wheelPoint + 100, 30, 0, 2 * Math.PI);
+    ctx2.fill();
 
     /* Road */
-    ctx.beginPath();
-    ctx.lineWidth = 1;
-    ctx.moveTo(0, wheelPoint + 150);
-    ctx.lineTo(width, wheelPoint + 150);
-    ctx.stroke();
+    ctx2.beginPath();
+    ctx2.lineWidth = 1;
+    ctx2.moveTo(0, wheelPoint + 150);
+    ctx2.lineTo(width, wheelPoint + 150);
+    ctx2.stroke();
 
-    ctx.restore();
+    ctx2.restore();
 
     iterator++;
 
