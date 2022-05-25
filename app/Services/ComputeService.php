@@ -6,10 +6,42 @@ class ComputeService
 {
     public function runOctave($data, $user)
     {
-        function initialize_data($data)
+        $command = $data;
+        $command = ltrim($command, "'");
+        $command = rtrim($command, "'");
+
+        function commandComputation($command): void
         {
-            $fp = fopen("../storage/app/octave/input.m", 'w');
-            $input = "pkg load control
+            $fop = fopen('input.m', 'w');
+            fwrite($fop, $command);
+            fclose($fop);
+            exec("octave input.m", $text);
+            if ($text[0] == null) {
+                echo json_encode("You have entered wrong input !");
+            } else {
+                echo json_encode($text[0]);
+            }
+        }
+
+        function rComputation($r): void
+        {
+            $txt_file = file_get_contents("vector.txt");
+            $rows = explode(" ", $txt_file);
+
+            foreach ($rows as &$number) {
+                $number = str_replace(" ", "", $number);
+                $number = floatval($number);
+            }
+
+            $x1 = $rows[0];
+            $x2 = $rows[1];
+            $x3 = $rows[2];
+            $x4 = $rows[3];
+            $x5 = $rows[4];
+
+            $fp = fopen('input.m', 'w');
+            $input = "
+            pkg load control
             m1 = 2500; m2 = 320;
             k1 = 80000; k2 = 500000;
             b1 = 350; b2 = 15020;
@@ -23,37 +55,49 @@ class ComputeService
             Da = D;
             K = [0 2.3e6 5e8 0 8e6];
             sys = ss(Aa-Ba(:,1)*K,Ba,Ca,Da);
+
             t = 0:0.01:5;
-            r = " . $data . ";
-            initX1 = 0;
-            initX1d = 0;
-            initX2 = 0;
-            initX2d = 0;
-            [y,t,x] = lsim(sys*[0;1],r*ones(size(t)),t,[initX1;initX1d;initX2;initX2d;0]);
-            filename = \"../storage/app/octave/vector.txt\";
-            fid = fopen (filename, \"w\");
-            fputs (fid, disp(x(size(x,1),:)));
+            r = " . $r . ";
+            [y,t,x] = lsim(sys*[0;1],r*ones(size(t)),t,[" . $x1 . ";" . $x2 . ";" . $x3 . ";" . $x4 . ";" . $x5 . "]);
+            filename = \"data.txt\";
+            fid = fopen (filename, \"w+\");
             fputs (fid, disp([t,x(:,1),x(:,3)]));
             fclose (fid);
+
+            filename = \"vector.txt\";
+            fid = fopen (filename, \"w+\");
+            for i=1:5
+                fprintf(fid, '%d', x(size(x,1), i));
+                fprintf(fid, ' ');
+            end
+            fclose (fid);
             ";
+
             fwrite($fp, $input);
             fclose($fp);
+            exec('octave input.m');
+
+            $txt_file = file_get_contents("data.txt");
+            $rows = explode("\n", $txt_file);
+
+            foreach ($rows as &$row) {
+                $row = explode("  ", $row);
+                unset($row[0]);
+                foreach ($row as &$number) {
+                    $number = str_replace(" ", "", $number);
+                    $number = floatval($number);
+                }
+            }
+            echo json_encode($rows);
         }
-        initialize_data($data);
 
-        exec('octave ../storage/app/octave/input.m');
-
-        $txt_file = file_get_contents("../storage/app/octave/vector.txt");
-        $rows = explode("\n", $txt_file);
-
-        foreach ($rows as &$row) {
-            $row = explode("  ", $row);
-            unset($row[0]);
-            foreach ($row as &$number) {
-                $number = str_replace(" ", "", $number);
-                $number = floatval($number);
+        if (!str_contains($command, "r=")) {
+            commandComputation($command);
+        } else {
+            $r = floatval(str_replace("r=", "", $command));
+            if ($r < 5 and $r > -5) {
+                rComputation($r);
             }
         }
-        return $rows;
     }
 }

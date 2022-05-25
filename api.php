@@ -92,6 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == "GET") {
 
         if (!str_contains($command, "r=")) {
             commandComputation($command);
+            
         } else {
             $r = floatval(str_replace("r=", "", $command));
             if ($r < 5 and $r > -5) {
