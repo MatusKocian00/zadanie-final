@@ -12,14 +12,17 @@
                     <x-auth-session-status class="mb-4" :status="session('status')" />
                     <!-- Validation Errors -->
                     <x-auth-validation-errors class="mb-4" :errors="$errors" />
-                    <form method="post" action={{url('calculation')}}>
+                    <form class="flex flex-col justify-center" method="post" action={{url('calculation')}}>
+                    <label for="r" class="form-label inline-block mb-3 text-gray-700 text-center">{{ __('messages.insert_evaluation') }}</label>
                         @csrf
                         <div class="form-group">
-                            <textarea name="body" placeholder="Enter rovnica:" rows="10" cols="10" class="w-full"></textarea>
+                            <textarea name="body" placeholder={{__('messages.evaluation')}} rows="2" cols="10" class="w-full"></textarea>
                         </div>
-                        <x-button>
-                            {{ __('compute') }}
-                        </x-button>
+                        <div class="flex justify-center mt-3">
+                                <x-button>
+                                {{__('messages.compute')}}
+                                </x-button>
+                        </div>
                     </form>
                 </div>
             </div>

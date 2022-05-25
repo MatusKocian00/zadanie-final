@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>CarSuspensionModel</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -31,6 +31,10 @@
             align-items: center;
             display: flex;
             justify-content: center;
+        }
+
+        .flex-col{
+            flex-direction: column;
         }
 
         .position-ref {
@@ -88,30 +92,24 @@
         @if (Route::has('login') && Auth::check())
         <div class="top-right links">
             <a href="{{ url('/dashboard') }}">Dashboard</a>
-            <a href="{{ url('/application') }}">Application</a>
+            <a href="{{ url('/application') }}">{{ __('messages.application') }}</a>
         </div>
         @elseif (Route::has('login') && !Auth::check())
         <div class="top-right links">
-            <a href="{{ url('/login') }}">Login</a>
-            <a href="{{ url('/register') }}">Register</a>
+            <a href="{{ url('/login') }}">{{ __('auth.login') }}</a>
+            <a href="{{ url('/register') }}">{{ __('auth.register') }}</a>
         </div>
         @endif
 
-        <div class="content">
-            <div class="title m-b-md">
-                {{__('messages.welcome')}}
+        <div class='flex-center flex-col'>
+            <div class="content">
+                <div class="title m-b-md">
+                    {{__('messages.welcome')}}
+                </div>
             </div>
 
-            <div class="links">
-                <a href="https://laravel.com/docs">{{__('messages.documentation')}}</a>
-                <a href="https://laracasts.com">Laracasts</a>
-                <a href="https://codecasts.com.br">CODECASTS [pt-BR]</a>
-                <a href="https://laravel-news.com">News</a>
-                <a href="https://forge.laravel.com">Forge</a>
-                <a href="https://github.com/codecasts/laravel">GitHub</a>
-            </div>
+            <x-application-logo />
         </div>
     </div>
 </body>
-
 </html>

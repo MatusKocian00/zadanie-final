@@ -3,23 +3,22 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
-
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     <x-nav-link :href="route('application')" :active="request()->routeIs('application')">
-                        {{ __('Application') }}
+                        {{ __('messages.application') }}
                     </x-nav-link>
                     <x-nav-link :href="route('calculation')" :active="request()->routeIs('calculation')">
-                        {{ __('Calculation') }}
+                        {{ __('messages.calculation') }}
                     </x-nav-link>
                     <x-nav-link :href="route('token')" :active="request()->routeIs('token')">
                         {{ __('Token') }}
                     </x-nav-link>
                     <x-nav-link :href="route('instructions')" :active="request()->routeIs('instructions')">
-                        {{ __('Instructions') }}
+                    {{ __('messages.instructions') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -47,7 +46,7 @@
 
                             <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('auth.logout') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -73,22 +72,21 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('application')" :active="request()->routeIs('application')">
-                {{ __('Application') }}
+            {{ __('messages.application') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('calculation')" :active="request()->routeIs('calculation')">
-                {{ __('Calculation') }}
+            {{ __('messages.calculation') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('token')" :active="request()->routeIs('token')">
                 {{ __('Token') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('instructions')" :active="request()->routeIs('instructions')">
-                {{ __('Instructions') }}
+            {{ __('messages.instructions') }}
             </x-responsive-nav-link>
-
         </div>
 
         <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200">
+        <div class="pt-4 pb-1 border-t border-gray-200 text-center">
             <div class="px-4">
                 <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
                 <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
@@ -102,7 +100,7 @@
 
                     <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                        {{ __('auth.logout') }}
                     </x-responsive-nav-link>
                 </form>
             </div>

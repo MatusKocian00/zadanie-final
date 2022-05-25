@@ -14,46 +14,46 @@
 
             <!-- Name -->
             <div>
-                <x-label for="name" :value="__('Name')" />
+                <x-label for="name" :value="__('auth.name')" />
 
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" autofocus />
             </div>
 
             <!-- Email Address -->
             <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
+                <x-label for="email" :value="__('auth.email')" />
 
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" />
             </div>
 
             <!-- Username -->
             <div class="mt-4">
-                <x-label for="username" :value="__('Username')" />
+                <x-label for="username" :value="__('auth.username')" />
 
                 <x-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" />
             </div>
 
             <!-- Password -->
             <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+                <x-label for="password" :value="__('auth.password')" />
 
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" autocomplete="new-password" />
             </div>
 
             <!-- Confirm Password -->
             <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
+                <x-label for="password_confirmation" :value="__('auth.confirm_password')" />
 
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" />
             </div>
 
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
+                    {{ __('auth.already_registered') }}
                 </a>
 
                 <x-button class="ml-4">
-                    {{ __('Register') }}
+                    {{ __('auth.register') }}
                 </x-button>
             </div>
         </form>

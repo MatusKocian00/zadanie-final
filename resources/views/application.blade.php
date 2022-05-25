@@ -14,9 +14,9 @@
                     <x-auth-validation-errors class="mb-4" :errors="$errors" />
                     <form method="post" action={{url('application')}}>
                         @csrf
-                        <div class="flex justify-center">
+                        <div class="flex justify-center text-center">
                             <div class="mb-3 xl:w-96">
-                                <label for="r" class="form-label inline-block mb-2 text-gray-700">Insert value r</label>
+                                <label for="r" class="form-label inline-block mb-2 text-gray-700">{{ __('messages.insert_value_r') }}</label>
                                 <input type="number" class="
         form-control
         block
@@ -31,12 +31,12 @@
         rounded
         transition
         ease-in-out
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="r" name="r" />
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="r" name="r" placeholder="0"/>
                             </div>
                         </div>
-                        <div class="flex justify-center mt-2">
+                        <div class="flex justify-center">
                             <x-button>
-                                {{ __('compute') }}
+                            {{ __('messages.compute') }}
                             </x-button>
                         </div>
                 </div>
