@@ -8,12 +8,12 @@
     let data2 = []
     for (let i = 1; i < jsObject.length - 1; i++) {
         labels.push(jsObject[i][1]);
-        // wheel
+        // car
         data.push({
             x: jsObject[i][1],
             y: jsObject[i][2]
         })
-        //car
+        // wheel
         data2.push({
             x: jsObject[i][1],
             y: jsObject[i][3]
@@ -56,7 +56,7 @@
             datasets: [{
                     borderColor: 'red',
                     //borderWidth: 1,
-                    label: "Wheel",
+                    label: "Chassis",
                     radius: 0,
                     data: data,
                 },

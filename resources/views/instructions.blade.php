@@ -34,7 +34,7 @@
                             <tbody>
                                 <tr class="bg-white border-b text-centers">
                                     <td class="px-6 py-4">
-                                        https://site95.webte.fei.stuba.sk/zadanie-final/api/car
+                                        https://site95.webte.fei.stuba.sk/zadanie-final/api/car?r=&lt;value&gt;
                                     </td>
                                     <td class="px-6 py-4">
                                         GET
@@ -43,7 +43,7 @@
                                         Bearer &lt;token&gt;
                                     </td>
                                     <td class="px-6 py-4">
-                                        Your desired calculation, if show animation type <br>"r=&lt;value&gt;"
+                                        Empty
                                     </td>
                                     <td class="px-6 py-4 text-right">
                                         application/json
@@ -52,6 +52,9 @@
                             </tbody>
                         </table>
                     </div>
+                    curl --location --request GET 'https://site95.webte.fei.stuba.sk/zadanie-final/api/car?r=1' \
+                    --header 'Accept: application/json' \
+                    --header 'Authorization: Bearer &lt;token&gt;
                 </div>
             </div>
         </div>
