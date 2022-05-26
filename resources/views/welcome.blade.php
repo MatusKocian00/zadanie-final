@@ -33,7 +33,7 @@
             justify-content: center;
         }
 
-        .flex-col{
+        .flex-col {
             flex-direction: column;
         }
 
@@ -71,7 +71,21 @@
             text-decoration: none;
             text-transform: uppercase;
         }
-        
+
+        .links>div {
+            color: #636b6f;
+            padding: 0 25px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .links>div:hover {
+            text-decoration: underline;
+        }
+
         .links>a:hover {
             text-decoration: underline;
         }
@@ -112,4 +126,5 @@
         </div>
     </div>
 </body>
+
 </html>

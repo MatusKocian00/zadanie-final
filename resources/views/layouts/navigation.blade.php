@@ -18,7 +18,7 @@
                         {{ __('Token') }}
                     </x-nav-link>
                     <x-nav-link :href="route('instructions')" :active="request()->routeIs('instructions')">
-                    {{ __('messages.instructions') }}
+                        {{ __('messages.instructions') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-language-switcher class=" text-center px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out'"></x-language-switcher>
+                        <x-language-switcher class=" text-center py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out'"></x-language-switcher>
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -72,16 +72,16 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('application')" :active="request()->routeIs('application')">
-            {{ __('messages.application') }}
+                {{ __('messages.application') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('calculation')" :active="request()->routeIs('calculation')">
-            {{ __('messages.calculation') }}
+                {{ __('messages.calculation') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('token')" :active="request()->routeIs('token')">
                 {{ __('Token') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('instructions')" :active="request()->routeIs('instructions')">
-            {{ __('messages.instructions') }}
+                {{ __('messages.instructions') }}
             </x-responsive-nav-link>
         </div>
 
@@ -94,7 +94,7 @@
 
             <div class="mt-3 space-y-1">
                 <!-- Authentication -->
-                <x-language-switcher class="text-center pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out"></x-language-switcher>
+                <x-language-switcher class="text-center py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out"></x-language-switcher>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
