@@ -31,12 +31,12 @@
         rounded
         transition
         ease-in-out
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="r" name="r" placeholder="0"/>
+        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="r" name="r" placeholder="0" step="0.1" min="-4" max="4" />
                             </div>
                         </div>
                         <div class="flex justify-center">
                             <x-button>
-                            {{ __('messages.compute') }}
+                                {{ __('messages.compute') }}
                             </x-button>
                         </div>
                 </div>

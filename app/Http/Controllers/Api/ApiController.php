@@ -14,7 +14,7 @@ class ApiController extends Controller
     public function car(Request $request)
     {
         $request->validate([
-            'r' => ['required', 'integer','between:-4,4'],
+            'r' => ['required','numeric','between:-4,4'],
         ]);
         $octave = new AnimationService;
         $data = $octave->animate($request->r);
