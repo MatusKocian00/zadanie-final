@@ -28,6 +28,19 @@
             .then(result => {answerDiv.innerHTML = JSON.stringify(result)
             });
     }
+
+    let button = document.getElementById("button");
+    button.addEventListener("click", function () {
+        let doc = new jsPDF("p", "pt", [841.89, 595.28]);
+        let makePDF = document.getElementById("printDiv");
+        const margins = {
+            top: 40,
+            left: 40
+        };
+
+        doc.fromHTML(makePDF, margins.left, margins.top);
+        doc.save("popis_API.pdf");
+    });
 </script>
 </body>
 </html>
