@@ -58,6 +58,7 @@ Route::get('/instructions', function () {
 
 Route::get('/tasks', [TaskController::class, 'exportCsv'])->middleware(['auth'])->name('export');
 
+Route::get('/tasks/email', [TaskController::class, 'sendMail'])->middleware(['auth'])->name('mail');
 
 
 

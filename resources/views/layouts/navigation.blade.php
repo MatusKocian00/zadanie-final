@@ -3,6 +3,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
+                <div class="shrink-1 flex items-center ">
+                    <a href="{{ route('dashboard') }}">
+                        <x-application-logo />
+                    </a>
+                </div>
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
@@ -42,6 +47,7 @@
                         <x-language-switcher class=" text-center py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out'"></x-language-switcher>
                         <!-- Authentication -->
                         <x-dropdown-link :href="route('export')">Export CSV</x-dropdown-link>
+                        <x-dropdown-link :href="route('mail')">Send CSV</x-dropdown-link>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
@@ -96,6 +102,8 @@
             <div class="mt-3 space-y-1">
                 <!-- Authentication -->
                 <x-language-switcher class="text-center py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out"></x-language-switcher>
+                <x-responsive-nav-link :href="route('export')">Export CSV</x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('mail')">Send CSV</x-responsive-nav-link>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
