@@ -41,6 +41,7 @@
                     <x-slot name="content">
                         <x-language-switcher class=" text-center py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out'"></x-language-switcher>
                         <!-- Authentication -->
+                        <x-dropdown-link :href="route('export')">Export CSV</x-dropdown-link>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 

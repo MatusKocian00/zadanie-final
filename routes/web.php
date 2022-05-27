@@ -4,6 +4,7 @@ use App\Http\Controllers\application\GraphController;
 use App\Http\Controllers\application\CalculateController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TokenController;
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,8 @@ Route::post('token', [TokenController::class, 'generateToken'])->middleware(['au
 Route::get('/instructions', function () {
     return view('instructions');
 })->middleware(['auth'])->name('instructions');
+
+Route::get('/tasks', [TaskController::class, 'exportCsv'])->middleware(['auth'])->name('export');
 
 
 
