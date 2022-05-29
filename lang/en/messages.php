@@ -24,10 +24,8 @@ return [
     'insert_value_r' => 'Insert value "r"',
     'evaluation' => 'Evaluation',
     'insert_evaluation' => 'Insert evaluation',
-<<<<<<< HEAD
     'instructions' => 'API',
     'example' => 'Examples',
-=======
     'instructions' => 'Instructions',
     'dashboard'    => 'Welcome to our website 👋 ',
     'dashboard_app' => 'We are third year students of applied informatics and within the subject of web technologies we made an application of wheel damping simulation.
@@ -60,10 +58,10 @@ return [
     'dashboard_table_r9' => 'docker package',
     'dashboard_table_r10' => 'use of the versioning system by all team members',
     'dashboard_table_r11' => 'application finalization',
-    'dashboard_table_imp' => '* not implemented *' 
+    'dashboard_table_imp' => '* not implemented *'
 
-                              
-    
->>>>>>> refs/remotes/origin/dev
+
+
+
 
 ];

@@ -10,6 +10,7 @@ return [
     */
 
     'welcome' => 'Vitajte na našej stránke!',
+    'application' => 'Aplikácia OCTAVE CLI',
     'documentation' => 'Dokumentácia',
     'calculation' => 'Výpočet',
     'tokens' => 'Tokeny',
@@ -22,10 +23,8 @@ return [
     'insert_value_r' => 'Zadajte hodnotu "r"',
     'evaluation' => 'Rovnica',
     'insert_evaluation' => 'Zadajte rovnicu',
-<<<<<<< HEAD
     'instructions' => 'API',
-    'example' => 'Príklady'
-=======
+    'example' => 'Príklady',
     'instructions' => 'Inštrukcie',
     'dashboard'    => 'Vitajte na našej stránke 👋 ',
     'dashboard_app' => 'Sme študenti tretieho ročníka aplikovanej informatiky a vrámci predmetu webové technológie sme robili aplikáciu simulácie tlmenia kolesa.
@@ -60,5 +59,4 @@ return [
     'dashboard_table_r10' => 'používanie verzionovacieho systému všetkými členmi tímu',
     'dashboard_table_r11' => 'finalizácia aplikácie',
     'dashboard_table_imp' => '* neimplementované *'
->>>>>>> refs/remotes/origin/dev
 ];
