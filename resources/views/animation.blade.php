@@ -13,10 +13,12 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="flex">
-                        @isset('graph')
+                        @isset($graph)
+                        <x-graph :data="$data"></x-graph>
                         @endisset
-                    <x-graph :data="$data"></x-graph>
-                    <x-wheel-animation></x-wheel-animation>
+                        @isset($animation)
+                        <x-wheel-animation></x-wheel-animation>
+                        @endisset
                     </div>
                 </div>
             </div>
