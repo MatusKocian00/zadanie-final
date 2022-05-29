@@ -5,6 +5,7 @@ use App\Http\Controllers\application\CalculateController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TokenController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\PDFController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,6 @@ Route::get('/tasks', [TaskController::class, 'exportCsv'])->middleware(['auth'])
 
 Route::get('/tasks/email', [TaskController::class, 'sendMail'])->middleware(['auth'])->name('mail');
 
-
+Route::get('generate-pdf', [PDFController::class, 'generatePDF'])->middleware(['auth'])->name('generate');
 
 require __DIR__ . '/auth.php';

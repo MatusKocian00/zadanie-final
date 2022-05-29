@@ -48,6 +48,7 @@
                         <!-- Authentication -->
                         <x-dropdown-link :href="route('export')">{{ __('auth.export_csv') }}</x-dropdown-link>
                         <x-dropdown-link :href="route('mail')">{{ __('auth.send_csv') }}</x-dropdown-link>
+                        <x-dropdown-link :href="route('generate')">Generate API Instructions</x-dropdown-link>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
