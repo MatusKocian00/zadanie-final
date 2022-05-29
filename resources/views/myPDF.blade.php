@@ -1,9 +1,13 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('messages.instructions') }}
-        </h2>
-    </x-slot>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hi</title>
+</head>
+
+<body>
+    <h1>{{ $title }}</h1>
+    <p>{{ $date }}</p>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -77,7 +81,7 @@
                             <hr class="m-1">
                             <span class=" text-red-500">POST</span> /zadanie-final/api/compute HTTP/1.1<br>
                             Host: site95.webte.fei.stuba.sk<br>
-                            Authorization: Bearer &lt;token&gt<br>
+                            Authorization: Bearer token<br>
                             Accept: application/json<br>
                             Content-Type: application/json<br>
                             Content-Length: 22<br>
@@ -89,11 +93,13 @@
                             <span class=" text-red-500">GET</span> /zadanie-final/api/car?r=1 HTTP/1.1<br>
                             Host: site95.webte.fei.stuba.sk<br>
                             Accept: application/json<br>
-                            Authorization: Bearer &lt;token&gt<br>
+                            Authorization: Bearer token<br>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</x-app-layout>
+</body>
+
+</html>

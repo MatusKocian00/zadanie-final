@@ -47,6 +47,7 @@
                         <x-language-switcher class=" text-center py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out'"></x-language-switcher>
                         <!-- Authentication -->
                         <x-dropdown-link :href="route('export')">Export CSV</x-dropdown-link>
+                        <x-dropdown-link :href="route('pdf')">API docs PDF</x-dropdown-link>
                         <x-dropdown-link :href="route('mail')">Send CSV</x-dropdown-link>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -103,6 +104,7 @@
                 <!-- Authentication -->
                 <x-language-switcher class="text-center py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out"></x-language-switcher>
                 <x-responsive-nav-link :href="route('export')">Export CSV</x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('pdf')">API docs pdf</x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('mail')">Send CSV</x-responsive-nav-link>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
