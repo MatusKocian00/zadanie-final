@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
+            <a href="/zadanie-final/">
                 <x-application-logo />
             </a>
         </x-slot>
@@ -43,9 +43,9 @@
                 </x-button>
 
                 @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                     {{ __('auth.forgotten_password') }}
-                    </a>
+                </a>
                 @endif
             </div>
         </form>
