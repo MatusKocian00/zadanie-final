@@ -29,5 +29,6 @@ return [
     'name' => 'Meno',
     'password_reset_link' => 'Odoslať email pre resetovanie hesla',
     'forgotten_password_page_message' => 'Zabudli ste svoje heslo? Žiadny problém. Len zadajte Vašu e-mailovu adresu na ktorú Vám odošleme link pre reset hesla a nastavíte si jednoducho nové.',
-
+    'export_csv' => 'Exportovať do CSV',
+    'send_csv' => 'Odoslať ako CSV',
 ];

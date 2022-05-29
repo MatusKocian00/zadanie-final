@@ -29,5 +29,6 @@ return [
     'name' => 'Name',
     'password_reset_link' => 'Email Password Reset Link',
     'forgotten_password_page_message' => 'Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.',
-
+    'export_csv' => 'Export CSV',
+    'send_csv' => 'Send CSV',
 ];
