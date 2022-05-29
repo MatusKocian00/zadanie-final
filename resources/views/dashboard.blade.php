@@ -118,7 +118,7 @@
                             <td class="border px-2 py-2 text-gray-700">{{__('messages.dashboard_table_r4')}}</td>
                           </tr>
                           <tr>
-                            <td class="border px-2 py-2 text-gray-700">Matúš Kocián</td>
+                            <td class="border px-2 py-2 text-gray-700">Matúš Kocián<br>Andrej Horník</td>
                             <td class="border px-2 py-2 text-gray-700">{{__('messages.dashboard_table_r5')}}</td>
                           </tr>
                           <tr>
@@ -138,7 +138,7 @@
                             <td class="border px-2 py-2 text-gray-700">{{__('messages.dashboard_table_r9')}}</td>
                           </tr>
                           <tr>
-                            <td class="border px-2 py-2 text-gray-700">Dominika Bemberáková<BR>Matúš Kocián<BR>Samuel Hančák</td>
+                            <td class="border px-2 py-2 text-gray-700">Dominika Bemberáková<BR>Matúš Kocián<BR>Samuel Hančák<br>Andrej Horník</td>
                             <td class="border px-2 py-2 text-gray-700">{{__('messages.dashboard_table_r10')}}</td>
                           </tr>
                           <tr>
