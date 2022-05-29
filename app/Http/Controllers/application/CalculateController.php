@@ -11,7 +11,7 @@ class CalculateController extends Controller
     public function count(Request $request)
     {
         $data = (new ApiController)->calculate($request);
-
+        
         return view('count', [
             'data' => $data->getContent()
         ]);
