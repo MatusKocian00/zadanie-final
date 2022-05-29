@@ -24,6 +24,7 @@ return [
     'insert_value_r' => 'Insert value "r"',
     'evaluation' => 'Evaluation',
     'insert_evaluation' => 'Insert evaluation',
-    'instructions' => 'Instructions',
+    'instructions' => 'API',
+    'example' => 'Examples',
 
 ];

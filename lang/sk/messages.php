@@ -22,5 +22,6 @@ return [
     'insert_value_r' => 'Zadajte hodnotu "r"',
     'evaluation' => 'Rovnica',
     'insert_evaluation' => 'Zadajte rovnicu',
-    'instructions' => 'Inštrukcie',
+    'instructions' => 'API',
+    'example' => 'Príklady'
 ];

@@ -49,12 +49,50 @@
                                         application/json
                                     </td>
                                 </tr>
+                                <tr class="bg-white border-b text-centers">
+                                    <td class="px-6 py-4">
+                                        https://site95.webte.fei.stuba.sk/zadanie-final/api/compute
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        POST
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        Bearer &lt;token&gt;
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {"body": "calculation"}
+                                    </td>
+                                    <td class="px-6 py-4 text-right">
+                                        application/json
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
-                    curl --location --request GET 'https://site95.webte.fei.stuba.sk/zadanie-final/api/car?r=1' \
-                    --header 'Accept: application/json' \
-                    --header 'Authorization: Bearer &lt;token&gt;
+                    <div class="mt-3 mb-3">
+                        <h3 class="font-semibold text-xl text-gray-800 leading-tight text-center">{{__('messages.example')}}</h3>
+                    </div>
+                    <div class="flex justify-evenly mt-3 mb-3 border-3">
+                        <div class="p-2">
+                            <p class="font-bold text-xl text-gray-800 text-center">Computation POST</p>
+                            <hr class="m-1">
+                            <span class=" text-red-500">POST</span> /zadanie-final/api/compute HTTP/1.1<br>
+                            Host: site95.webte.fei.stuba.sk<br>
+                            Authorization: Bearer &lt;token&gt<br>
+                            Accept: application/json<br>
+                            Content-Type: application/json<br>
+                            Content-Length: 22<br>
+                            {"body": "1+1"}
+                        </div>
+                        <div class="p-2"">
+                        <p class=" font-bold text-xl text-gray-800 text-center">Simulation GET</p>
+                            <hr class="m-1">
+                            <span class=" text-red-500">GET</span> /zadanie-final/api/car?r=1 HTTP/1.1<br>
+                            Host: site95.webte.fei.stuba.sk<br>
+                            Accept: application/json<br>
+                            Authorization: Bearer &lt;token&gt<br>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
