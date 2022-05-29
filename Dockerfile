@@ -20,10 +20,12 @@ RUN apt-get update && apt-get install -y \
   unzip \
   git \
   libonig-dev \
-  curl
+  curl \
+  octave \
+  liboctave-dev
 
 RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - 
-RUN apt-get install -y nodejs
+RUN apt-get install -y nodejs 
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -35,6 +37,7 @@ RUN docker-php-ext-install gd
 
 # Install composer (php package manager)
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
 
 # Copy existing application directory contents to the working directory
 COPY . /var/www/html
